@@ -13,7 +13,7 @@ namespace Image_Downsizer
         static byte[] imageByte;
         static int h;
         static int w;
-        static byte[] newByteImg;
+        static long[] newByteImg;
         
         
         public static byte[] ImageBytes { get; set; }
@@ -79,8 +79,8 @@ namespace Image_Downsizer
             Console.WriteLine(percentage);
             if (percentage != 0) {
                 Console.WriteLine("hi");
-                long newH = h * percentage;
-                long newW = w *percentage;
+                int newH = h * percentage;
+                int newW = w *percentage;
                 
                 //nPixie = new byte[newH, newW];
 
@@ -90,10 +90,10 @@ namespace Image_Downsizer
                  * [][][]      [][]
                  * [][][]      
                 */
-                long length = (long)newH * newW * 3;
+                int length = (int)newH * newW * 3;
                 Console.Write(" " + length);
 
-                newByteImg = new byte[length]; //rbg
+                newByteImg = new long[length]; //rbg
 
                 for (int hi = 0, wi=0;hi<newH; hi++){
                 for(;wi<newW; wi++){
