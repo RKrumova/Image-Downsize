@@ -39,6 +39,7 @@ namespace Image_Downsizer
         {
 
         }
+        
 
         private void changeButton_Click(object sender, EventArgs e)
         {
@@ -46,7 +47,7 @@ namespace Image_Downsizer
             {
                 int number = (int)numericUpDown1.Value;
                 Console.WriteLine(number);
-                Downsize.changePicture(number);
+                Downsize.startProcess(number);
             }catch(Exception ex)
             {
                 MessageBox.Show("Something went wrong");

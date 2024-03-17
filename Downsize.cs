@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Image_Downsizer
@@ -14,7 +15,7 @@ namespace Image_Downsizer
         static int w;
         static byte[] newByteImg;
         
-
+        
         public static byte[] ImageBytes { get; set; }
         
         public static void uploadByte()
@@ -32,6 +33,8 @@ namespace Image_Downsizer
                 //the width and height are stored as 32-bit integers
                 h = BitConverter.ToInt32(imageByte, 18);
                 w = BitConverter.ToInt32(imageByte, 22);
+                
+
 
                 //}
             }/*
@@ -43,8 +46,25 @@ namespace Image_Downsizer
         }
 
         //first 24 bytes of the image file, typically include information about the image dimensions.
-
-
+        private static int percentage;
+        public static void startProcess(int number)
+        {
+            percentage = number;
+            int chunkCount = 3;
+            int chunkWidth = w / chunkCount;
+            int chunkHeight = h;
+            byte[][] processedChunks = new byte[chunkCount][];
+            Thread[] imgThreads = new Thread[3];
+            for (int i = 0; i < chunkCount; i++)
+            {
+                imgThreads[i] = new Thread(() => changePicture(i * chunkWidth, (i + 1) * chunkWidth));
+                imgThreads[i].Start();
+            }
+            foreach (Thread thread in imgThreads)
+            {
+                thread.Join();
+            }
+        }
         public static string getDementions()
         {
 
@@ -54,10 +74,10 @@ namespace Image_Downsizer
         }
 
         //
-        public static void changePicture(int percentage)
+        public static void changePicture(int startX, int endX)
         {
             Console.WriteLine(percentage);
-            if (percentage != 0 || percentage.Equals("")) {
+            if (percentage != 0) {
                 Console.WriteLine("hi");
                 long newH = h * percentage;
                 long newW = w *percentage;
@@ -89,10 +109,6 @@ namespace Image_Downsizer
                         newByteImg[newINdex + 2] = imageByte[oldIndex + 2];
                         
                 }}
-                for (int i=0; i < newByteImg.Length - 1; i++)
-                {
-                    Console.Write(newByteImg[i] + " ");
-                }
             }
             else
             {

@@ -32,7 +32,6 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.currentTB = new System.Windows.Forms.TextBox();
-            this.changeTextBox = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -78,15 +77,6 @@
             this.currentTB.Size = new System.Drawing.Size(100, 24);
             this.currentTB.TabIndex = 3;
             // 
-            // changeTextBox
-            // 
-            this.changeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeTextBox.Location = new System.Drawing.Point(400, 121);
-            this.changeTextBox.Name = "changeTextBox";
-            this.changeTextBox.Size = new System.Drawing.Size(100, 24);
-            this.changeTextBox.TabIndex = 4;
-            this.changeTextBox.TextChanged += new System.EventHandler(this.changeTextBox_TextChanged);
-            // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -128,7 +118,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(367, 295);
+            this.numericUpDown1.Location = new System.Drawing.Point(389, 120);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 10;
@@ -149,7 +139,6 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.changeTextBox);
             this.Controls.Add(this.currentTB);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.progressBar);
@@ -168,7 +157,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox currentTB;
-        private System.Windows.Forms.TextBox changeTextBox;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
