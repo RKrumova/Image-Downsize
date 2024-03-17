@@ -14,11 +14,13 @@ namespace Image_Downsizer
 {
     public partial class Form1 : Form
     {
-        private object imageByte;
 
         public Form1()
         {
             InitializeComponent();
+            textBox4 = new System.Windows.Forms.TextBox();
+            
+
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -29,6 +31,30 @@ namespace Image_Downsizer
         private void buttonUplode_Click(object sender, EventArgs e)
         {
             Downsize.uploadByte();
+            currentTB.Text = Downsize.getDementions();
+            
+        }
+
+        private void changeTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int number = (int)numericUpDown1.Value;
+                Console.WriteLine(number);
+                Downsize.changePicture(number);
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -36,7 +36,9 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.goButton = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonUplode
@@ -83,6 +85,7 @@
             this.changeTextBox.Name = "changeTextBox";
             this.changeTextBox.Size = new System.Drawing.Size(100, 24);
             this.changeTextBox.TabIndex = 4;
+            this.changeTextBox.TextChanged += new System.EventHandler(this.changeTextBox_TextChanged);
             // 
             // textBox4
             // 
@@ -113,21 +116,36 @@
             this.textBox6.TabIndex = 7;
             this.textBox6.Text = "Progress bar";
             // 
-            // goButton
+            // changeButton
             // 
-            this.goButton.Location = new System.Drawing.Point(524, 113);
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 32);
-            this.goButton.TabIndex = 9;
-            this.goButton.Text = "button2";
-            this.goButton.UseVisualStyleBackColor = true;
+            this.changeButton.Location = new System.Drawing.Point(524, 113);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(75, 32);
+            this.changeButton.TabIndex = 9;
+            this.changeButton.Text = "Change";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(367, 295);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 374);
-            this.Controls.Add(this.goButton);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.changeButton);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
@@ -138,6 +156,7 @@
             this.Controls.Add(this.buttonUplode);
             this.Name = "Form1";
             this.Text = "Image downsizer";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +172,8 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.Button changeButton;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
